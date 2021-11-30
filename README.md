@@ -2,7 +2,7 @@
 
 My solutions to Advent of Code 2021
 
-I will be using JavaScript/NodeJS mostly
+I will be using TypeScript/JavaScript/NodeJS mostly
 
 [Advent of Code](https://adventofcode.com/2021)
 
@@ -22,6 +22,6 @@ Collect stars by solving puzzles. Two puzzles will be made available on each day
 
 ## Progress
 
-| Day                                                    | Part 1 | Part 2 |
-| :----------------------------------------------------- | :----: | :----: |
-<!-- | [Day 1: Report Repair](src/01/summary.md#readme)       |   ⭐   |   🌟   | -->
+| Day  |                      Part 1                      | Part 2 |
+| :--- | :----------------------------------------------: | :----: | --- | --- |
+| <!-- | [Day 1: Report Repair](src/01/summary.md#readme) |   ⭐   | 🌟  | --> |
