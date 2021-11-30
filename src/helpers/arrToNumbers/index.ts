@@ -1,4 +1,4 @@
-const arrToNumbers = (arr: string[]) => {
+const arrToNumbers = (arr: string[]): number[] => {
   return arr.map(x => parseInt(x))
 }
 

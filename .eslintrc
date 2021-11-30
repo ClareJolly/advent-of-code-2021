@@ -68,6 +68,7 @@
     "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": false }],
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": ["warn"],
+    "@typescript-eslint/explicit-function-return-type": ["error"],
     "node/no-missing-import": ["error"],
     "node/no-unsupported-features/es-syntax": [
       "error",
