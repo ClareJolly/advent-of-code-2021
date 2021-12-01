@@ -44,7 +44,7 @@ In this example, there are 7 measurements that are larger than the previous meas
 
 How many measurements are larger than the previous measurement?
 
-[Solution Part 1](/part1/index.ts)
+[Solution Part 1](./part1/index.ts)
 
 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄
 
@@ -88,6 +88,6 @@ In this example, there are 5 sums that are larger than the previous sum.
 
 Consider sums of a three-measurement sliding window. How many sums are larger than the previous sum?
 
-[Solution Part 2](/part2/index.ts)
+[Solution Part 2](./part2/index.ts)
 
 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄

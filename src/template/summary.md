@@ -8,7 +8,7 @@
 
 <--TEXT-->
 
-[Solution Part 1](part1/index.ts)
+[Solution Part 1](./part1/index.ts)
 
 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄
 
@@ -16,6 +16,6 @@
 
 <--TEXT-->
 
-[Solution Part 2](part2/index.ts)
+[Solution Part 2](./part2/index.ts)
 
 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄
