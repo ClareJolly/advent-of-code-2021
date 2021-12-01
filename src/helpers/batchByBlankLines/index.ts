@@ -1,4 +1,6 @@
-const batchByBlankLines = (inputData: string[]) => {
+/* istanbul ignore file */
+
+const batchByBlankLines = (inputData: string[]): string[][] => {
   const batches = inputData.reduce(
     (acc, item) => {
       if (item === '') {

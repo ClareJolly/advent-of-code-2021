@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import fs from 'fs'
 
 const fileToString = (filepath: string): string => {
