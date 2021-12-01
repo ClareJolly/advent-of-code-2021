@@ -1,16 +1,10 @@
 import { arrToNumbers } from '../../helpers'
+import getIncreases from '../helpers/getIncreases'
 
 const part1 = (inputData: string[]): number => {
   const data = arrToNumbers(inputData)
 
-  let increase = 0
-
-  data.forEach((depth, i) => {
-    if (i > 0) {
-      if (depth > data[i - 1]) increase++
-    }
-  })
-  return increase
+  return getIncreases(data)
 }
 
 export default part1
