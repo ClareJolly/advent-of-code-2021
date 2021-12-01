@@ -1,4 +1,4 @@
-import fileToArray from '../helpers/fileToArray'
+import { fileToArray } from '../helpers'
 import path from 'path'
 
 import part1 from './part1'
