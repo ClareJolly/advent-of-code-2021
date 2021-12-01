@@ -50,8 +50,8 @@ How many measurements are larger than the previous measurement?
 
 ## Part 2
 
-<--TEXT-->
+<!-- <--TEXT-->
 
-[Solution Part 2](part2.js)
+[Solution Part 2](part2.js) -->
 
 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄
