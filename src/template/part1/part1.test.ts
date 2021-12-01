@@ -1,9 +1,7 @@
 import part1 from '.'
-import { fileToArray } from '../../helpers'
-import path from 'path'
+import { getDataForTest } from '../../../test/unit/utils'
 
-// const testData = fileToArray(path.join(__dirname, '../data/testData.txt'))
-// const realData = fileToArray(path.join(__dirname, '../data/input.txt'))
+const { testData, realData } = getDataForTest(__dirname)
 
 describe('part1', () => {
   // it('returns the expected answer with test data', () => {
