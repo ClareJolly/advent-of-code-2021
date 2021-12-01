@@ -1,3 +1,17 @@
-import part1 from '.';
+import part1 from '.'
+import { fileToArray } from '../../helpers'
+import path from 'path'
 
-describe('part1', () => {});
+// const testData = fileToArray(path.join(__dirname, '../data/testData.txt'))
+// const realData = fileToArray(path.join(__dirname, '../data/input.txt'))
+
+describe('part1', () => {
+  // it('returns the expected answer with test data', () => {
+  //   const result = part1(testData)
+  //   expect(result).toStrictEqual()
+  // })
+  // it('returns the expected answer with real data', () => {
+  //   const result = part1(realData)
+  //   expect(result).toStrictEqual()
+  // })
+})
