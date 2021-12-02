@@ -1,7 +1,7 @@
 import part1 from '.'
 import { getDataForTest } from '../../../test/unit/utils'
 
-const { testData } = getDataForTest(__dirname)
+const { testData, realData } = getDataForTest(__dirname)
 
 describe('part1', () => {
   it('returns the expected answer with test data', () => {
@@ -9,7 +9,7 @@ describe('part1', () => {
     expect(result).toStrictEqual(150)
   })
   it('returns the expected answer with real data', () => {
-    //   const result = part1(realData)
-    //   expect(result).toStrictEqual()
+    const result = part1(realData)
+    expect(result).toStrictEqual(1815044)
   })
 })
