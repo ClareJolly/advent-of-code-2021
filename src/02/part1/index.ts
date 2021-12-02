@@ -7,9 +7,9 @@ const part1 = (inputData: string[]) => {
   const position: Position = { x: 0, y: 0 }
 
   data.forEach(([dir, num]) => {
-    const { axis, multi } = dirConfig[dir as string]
+    const { axis, multi } = dirConfig[dir]
 
-    position[axis] = position[axis] + (num as number) * multi
+    position[axis] = position[axis] + num * multi
   })
   return position['x'] * position['y']
 }
