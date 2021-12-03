@@ -1,25 +1,13 @@
+import { transposeArray } from '../helpers'
+
 const part1 = (inputData: string[]) => {
   const data = inputData.map(d => d.split('').map(d => Number(d)))
 
-  const length = inputData[0].length
-
-  const frequency: number[][] = []
-
-  data.forEach(d => {
-    for (let x = 0; x < length; x++) {
-      if (!frequency[x]) frequency[x] = []
-      frequency[x].push(d[x])
-    }
-  })
-
-  const result: { [key: string]: number } = {}
+  const frequency = transposeArray(data)
 
   const finalFreq = frequency.map(f => {
-    return f.reduce((acc, curr) => {
-      acc[curr] = (acc[curr] ?? 0) + 1
-      if (acc[curr] >= 3) {
-        result[curr] = acc[curr]
-      }
+    return f.reduce((acc, item) => {
+      acc[item] = (acc[item] ?? 0) + 1
       return acc
     }, {} as { [key: string]: number })
   })
