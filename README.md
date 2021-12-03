@@ -22,7 +22,8 @@ Collect stars by solving puzzles. Two puzzles will be made available on each day
 
 ## Progress
 
-| Day                                            | Part 1 | Part 2 |
-| :--------------------------------------------- | :----: | :----: |
-| [Day 1: Sonar Sweep](src/01/summary.md#readme) |   ⭐   |   🌟   |
-| [Day 2: Dive!](src/02/summary.md#readme)       |   ⭐   |   🌟   |
+| Day                                                  | Part 1 | Part 2 |
+| :--------------------------------------------------- | :----: | :----: |
+| [Day 1: Sonar Sweep](src/01/summary.md#readme)       |   ⭐   |   🌟   |
+| [Day 2: Dive!](src/02/summary.md#readme)             |   ⭐   |   🌟   |
+| [Day 3: Binary Diagnostic](src/03/summary.md#readme) |        |        |
