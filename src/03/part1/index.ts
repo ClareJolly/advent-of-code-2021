@@ -5,7 +5,7 @@ const part1 = (inputData: string[]) => {
 
   const frequency: number[][] = []
 
-  data.forEach((d, i) => {
+  data.forEach(d => {
     for (let x = 0; x < length; x++) {
       if (!frequency[x]) frequency[x] = []
       frequency[x].push(d[x])
@@ -29,6 +29,7 @@ const part1 = (inputData: string[]) => {
       return f[0] > f[1] ? 0 : 1
     })
     .join('')
+
   const epsilonBinary = finalFreq
     .map(f => {
       return f[0] < f[1] ? 0 : 1
