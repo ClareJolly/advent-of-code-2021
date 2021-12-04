@@ -1,23 +1,10 @@
-import { batchByBlankLines } from '../../helpers'
+import { calculateScore, formatBatches, setupData } from '../helpers'
 import { WinDetailsPart2 } from '../types'
 
 const part2 = (inputData: string[]) => {
-  const data = [...inputData]
-  const bingoCall = data.splice(0, 1)[0]
-  data.splice(0, 1)
+  const { data, numbers } = setupData(inputData)
 
-  const numbers = bingoCall.split(',').map(n => Number(n))
-
-  const batches = batchByBlankLines(data)
-
-  const formattedBatches = batches.map(batch => {
-    return batch.map(b => {
-      return b
-        .split(' ')
-        .filter(b => b)
-        .map(b => Number(b))
-    })
-  })
+  const formattedBatches = formatBatches(data)
 
   const wins: WinDetailsPart2[] = []
   let x = 0
@@ -71,13 +58,7 @@ const part2 = (inputData: string[]) => {
   }
 
   const lastWin = wins[wins.length - 1]
-  const sum = lastWin.fullBoard!.reduce((acc, item) => {
-    item.forEach(i => {
-      if (i !== -1) acc += i
-    })
-    return acc
-  }, 0)
-  return sum * lastWin.number!
+  return calculateScore(lastWin.fullBoard!, lastWin.number!)
 }
 
 export default part2
