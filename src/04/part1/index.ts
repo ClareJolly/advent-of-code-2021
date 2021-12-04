@@ -1,4 +1,4 @@
-import { calculateScore, formatBatches, setupData } from '../helpers'
+import { calculateScore, formatBatches, getCoOrds, setupData } from '../helpers'
 import { WinDetails } from '../types'
 
 const part1 = (inputData: string[]) => {
@@ -12,17 +12,13 @@ const part1 = (inputData: string[]) => {
     column: undefined,
     number: undefined,
   }
+
   let x = 0
   while (!win.board) {
     const n = numbers[x]
-    const coOrds: number[][] = []
-    formattedBatches.forEach((b, batchIndex) => {
-      b.forEach((r, rowIndex) => {
-        if (r.indexOf(n) > -1) {
-          coOrds.push([batchIndex, rowIndex, r.indexOf(n)])
-        }
-      })
-    })
+
+    const coOrds = getCoOrds(formattedBatches, n)
+
     coOrds.forEach(([a, b, c]) => {
       formattedBatches[a][b][c] = -1
     })
@@ -52,14 +48,7 @@ const part1 = (inputData: string[]) => {
     x++
   }
 
-  //   const sum = formattedBatches[win.board].reduce((acc, item) => {
-  //     item.forEach(i => {
-  //       if (i !== -1) acc += i
-  //     })
-  //     return acc
-  //   }, 0)
   return calculateScore(formattedBatches[win.board], win.number!)
-  //   return sum * win.number!
 }
 
 export default part1

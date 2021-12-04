@@ -32,3 +32,15 @@ export const calculateScore = (board: number[][], number: number): number => {
   }, 0)
   return sum * number
 }
+
+export const getCoOrds = (formattedBatches: number[][][], n: number): number[][] => {
+  const coOrds: number[][] = []
+  formattedBatches.forEach((b, batchIndex) => {
+    b.forEach((r, rowIndex) => {
+      if (r.indexOf(n) > -1) {
+        coOrds.push([batchIndex, rowIndex, r.indexOf(n)])
+      }
+    })
+  })
+  return coOrds
+}

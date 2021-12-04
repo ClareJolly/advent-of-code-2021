@@ -7,6 +7,7 @@ const part2 = (inputData: string[]) => {
   const formattedBatches = formatBatches(data)
 
   const wins: WinDetailsPart2[] = []
+
   let x = 0
   while (wins.length < formattedBatches.length) {
     const n = numbers[x]
