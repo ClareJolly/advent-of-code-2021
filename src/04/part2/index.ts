@@ -4,11 +4,9 @@ import { WinDetailsPart2 } from '../types'
 const part2 = (inputData: string[]) => {
   const data = [...inputData]
   const bingoCall = data.splice(0, 1)[0]
-  console.log('🚀 ~ file: index.ts ~ line 6 ~ part2 ~ data', data)
   data.splice(0, 1)
 
   const numbers = bingoCall.split(',').map(n => Number(n))
-  console.log('🚀 ~ file: index.ts ~ line 9 ~ part2 ~ numbers', numbers)
 
   const batches = batchByBlankLines(data)
 
