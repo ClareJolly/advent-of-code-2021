@@ -1,4 +1,4 @@
-import { calculateScore, formatBatches, setupData } from '../helpers'
+import { calculateScore, formatBatches, getCoOrds, setupData } from '../helpers'
 import { WinDetailsPart2 } from '../types'
 
 const part2 = (inputData: string[]) => {
@@ -11,14 +11,9 @@ const part2 = (inputData: string[]) => {
   let x = 0
   while (wins.length < formattedBatches.length) {
     const n = numbers[x]
-    const coOrds: number[][] = []
-    formattedBatches.forEach((b, batchIndex) => {
-      b.forEach((r, rowIndex) => {
-        if (r.indexOf(n) > -1) {
-          coOrds.push([batchIndex, rowIndex, r.indexOf(n)])
-        }
-      })
-    })
+
+    const coOrds = getCoOrds(formattedBatches, n)
+
     coOrds.forEach(([a, b, c]) => {
       formattedBatches[a][b][c] = -1
     })
