@@ -1,16 +1,9 @@
-import { transposeArray } from '../helpers'
+import { getFrequency } from '../helpers'
 
 const part1 = (inputData: string[]) => {
   const data = inputData.map(d => d.split('').map(d => Number(d)))
 
-  const frequency = transposeArray(data)
-
-  const finalFreq = frequency.map(f => {
-    return f.reduce((acc, item) => {
-      acc[item] = (acc[item] ?? 0) + 1
-      return acc
-    }, {} as { [key: string]: number })
-  })
+  const finalFreq = getFrequency(data)
 
   const gammaBinary = finalFreq
     .map(f => {

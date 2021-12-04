@@ -12,3 +12,14 @@ export const transposeArray = (data: number[][]) => {
 
   return frequency
 }
+
+export const getFrequency = (data: number[][]) => {
+  const frequency = transposeArray(data)
+
+  return frequency.map(f => {
+    return f.reduce((acc, item) => {
+      acc[item] = (acc[item] ?? 0) + 1
+      return acc
+    }, {} as { [key: string]: number })
+  })
+}
