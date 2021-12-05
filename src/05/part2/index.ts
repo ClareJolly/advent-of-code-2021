@@ -10,7 +10,8 @@ import {
 const part2 = (inputData: string[]) => {
   const data = getVentLines(inputData)
 
-  const filtered = data.filter(({ x1, x2, y1, y2 }) => x1 === x2 || y1 === y2)
+  const filtered = data.filter(({ x1, x2, y1, y2 }) => x1 !== x2 && y1 !== y2)
+  console.log('🚀 ~ file: index.ts ~ line 14 ~ part2 ~ filtered', filtered)
 
   const rows = getHighestPerDirection(filtered, 'y')
   const columns = getHighestPerDirection(filtered, 'x')
