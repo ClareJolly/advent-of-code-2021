@@ -9,9 +9,6 @@ export type Direction = 'diagonal' | 'vertical' | 'horizontal'
 
 export interface Directions {
   direction: Direction
-  high?: number
-  low?: number
-  angle?: { WE?: string; NS?: string }
   xIncrementMultiplier: number
   yIncrementMultiplier: number
 }

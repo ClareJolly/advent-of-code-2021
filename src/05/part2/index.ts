@@ -1,5 +1,6 @@
 import {
   create2DArray,
+  getCondition,
   getDirections,
   getHighestPerDirection,
   getOverlaps,
@@ -23,7 +24,9 @@ const part2 = (inputData: string[]) => {
     if (direction === 'horizontal') {
       for (
         let x = x1!;
-        xIncrementMultiplier > 0 ? x <= x2! : x >= x2!;
+        // xIncrementMultiplier > 0 ? x <= x2! : x >= x2!;
+        // getCondition(xIncrementMultiplier, x, x2);
+        getCondition(x1, x, x2);
         x += xIncrementMultiplier * 1
       ) {
         grid[y1][x]++
@@ -33,7 +36,8 @@ const part2 = (inputData: string[]) => {
     if (direction === 'vertical') {
       for (
         let y = y1!;
-        yIncrementMultiplier > 0 ? y <= y2 : y >= y2;
+        getCondition(y1, y, y2);
+        // yIncrementMultiplier > 0 ? y <= y2 : y >= y2;
         y += yIncrementMultiplier * 1
       ) {
         grid[y][x1]++

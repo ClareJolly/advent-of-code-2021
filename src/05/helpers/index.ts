@@ -51,33 +51,24 @@ export const getDirections = ({ x1, x2, y1, y2 }: VentLines): Directions => {
   if (y1 === y2) direction = 'horizontal'
   if (x1 === x2) direction = 'vertical'
 
-  let high
-  let low
-  //   let WE
-  //   let NS
-  //   if (direction === 'horizontal') {
-  //     high = x1 - x2 < 0 ? x2 : x1
-  //     low = x1 - x2 < 0 ? x1 : x2
-  //   }
-  //   if (direction === 'vertical') {
-  //     high = y1 - y2 < 0 ? y2 : y1
-  //     low = y1 - y2 < 0 ? y1 : y2
-  //   }
-  //   if (direction === 'diagonal') {
-  //   }
+  let yIncrementMultiplier = undefined
+  let xIncrementMultiplier = undefined
 
-  const yIncrementMultiplier = y1 < y2 ? 1 : -1
-  const xIncrementMultiplier = x1 < x2 ? 1 : -1
+  yIncrementMultiplier = y1 < y2 ? 1 : -1
+  xIncrementMultiplier = x1 < x2 ? 1 : -1
 
   return {
     direction: direction as Direction,
-    // high,
-    // low,
     xIncrementMultiplier,
     yIncrementMultiplier,
-
-    // angle: { WE, NS },
   }
+}
+
+export const getConditionOLD = (incrementMultiplier: number, a: number, b: number) => {
+  return incrementMultiplier > 0 ? a <= b! : a >= b!
+}
+export const getCondition = (a1: number, a: number, a2: number) => {
+  return a1 < a2 ? a <= a2! : a >= a2!
 }
 
 export const getOverlaps = (grid: Grid) => {
