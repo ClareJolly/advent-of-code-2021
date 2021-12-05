@@ -11,7 +11,9 @@ export interface Directions {
   direction: Direction
   high?: number
   low?: number
-  //   angle?: { WE?: string; NS?: string }
+  angle?: { WE?: string; NS?: string }
+  xIncrementMultiplier: number
+  yIncrementMultiplier: number
 }
 
 export type Grid = number[][]

@@ -53,25 +53,29 @@ export const getDirections = ({ x1, x2, y1, y2 }: VentLines): Directions => {
 
   let high
   let low
-  let WE
-  let NS
-  if (direction === 'horizontal') {
-    high = x1 - x2 < 0 ? x2 : x1
-    low = x1 - x2 < 0 ? x1 : x2
-  }
-  if (direction === 'vertical') {
-    high = y1 - y2 < 0 ? y2 : y1
-    low = y1 - y2 < 0 ? y1 : y2
-  }
-  //   if (direction === 'diagonal') {
-  //     WE = x1 < x2 ? 'W' : 'E'
-  //     NS = y1 > y2 ? 'N' : 'S'
+  //   let WE
+  //   let NS
+  //   if (direction === 'horizontal') {
+  //     high = x1 - x2 < 0 ? x2 : x1
+  //     low = x1 - x2 < 0 ? x1 : x2
   //   }
+  //   if (direction === 'vertical') {
+  //     high = y1 - y2 < 0 ? y2 : y1
+  //     low = y1 - y2 < 0 ? y1 : y2
+  //   }
+  //   if (direction === 'diagonal') {
+  //   }
+
+  const yIncrementMultiplier = y1 < y2 ? 1 : -1
+  const xIncrementMultiplier = x1 < x2 ? 1 : -1
 
   return {
     direction: direction as Direction,
-    high,
-    low,
+    // high,
+    // low,
+    xIncrementMultiplier,
+    yIncrementMultiplier,
+
     // angle: { WE, NS },
   }
 }

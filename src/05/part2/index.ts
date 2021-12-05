@@ -16,17 +16,26 @@ const part2 = (inputData: string[]) => {
 
   const grid = create2DArray(rows + 1, columns + 1, () => 0)
 
-  filtered.forEach(({ x1, x2, y1, y2 }) => {
-    const { direction, high, low } = getDirections({ x1, x2, y1, y2 })
+  filtered.forEach(coOrds => {
+    const { direction, xIncrementMultiplier, yIncrementMultiplier } = getDirections(coOrds)
 
+    const { x1, x2, y1, y2 } = coOrds
     if (direction === 'horizontal') {
-      for (let x = low!; x <= high!; x++) {
+      for (
+        let x = x1!;
+        xIncrementMultiplier > 0 ? x <= x2! : x >= x2!;
+        x += xIncrementMultiplier * 1
+      ) {
         grid[y1][x]++
       }
     }
 
     if (direction === 'vertical') {
-      for (let y = low!; y <= high!; y++) {
+      for (
+        let y = y1!;
+        yIncrementMultiplier > 0 ? y <= y2 : y >= y2;
+        y += yIncrementMultiplier * 1
+      ) {
         grid[y][x1]++
       }
     }
