@@ -29,4 +29,4 @@ Collect stars by solving puzzles. Two puzzles will be made available on each day
 | [Day 3: Binary Diagnostic](src/03/summary.md#readme)    |   ⭐   |   🌟   |
 | [Day 4: Giant Squid](src/04/summary.md#readme)          |   ⭐   |   🌟   |
 | [Day 5: Hydrothermal Venture](src/05/summary.md#readme) |   ⭐   |   🌟   |
-| [Day 6: Lanternfish](src/06/summary.md#readme)          |        |        |
+| [Day 6: Lanternfish](src/06/summary.md#readme)          |   ⭐   |   🌟   |

@@ -9,7 +9,7 @@ describe('part2', () => {
     expect(result).toStrictEqual(26984457539)
   })
   it('returns the expected answer with real data', () => {
-    //   const result = part2(realData)
-    //   expect(result).toStrictEqual()
+    const result = part2(realData, 256)
+    expect(result).toStrictEqual(1631647919273)
   })
 })
