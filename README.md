@@ -30,4 +30,4 @@ Collect stars by solving puzzles. Two puzzles will be made available on each day
 | [Day 4: Giant Squid](src/04/summary.md#readme)             |   ⭐   |   🌟   |
 | [Day 5: Hydrothermal Venture](src/05/summary.md#readme)    |   ⭐   |   🌟   |
 | [Day 6: Lanternfish](src/06/summary.md#readme)             |   ⭐   |   🌟   |
-| [Day 7: The Treachery of Whales](src/06/summary.md#readme) |   ⭐   |   🌟   |
+| [Day 7: The Treachery of Whales](src/07/summary.md#readme) |   ⭐   |   🌟   |
