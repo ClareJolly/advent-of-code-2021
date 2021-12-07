@@ -1,6 +1,14 @@
 const part1 = (inputData: string[]) => {
   const data = inputData[0].split(',').map(d => Number(d))
-  console.log('  ~ file: index.ts ~ line 3 ~ part1 ~ data', data)
+
+  let positions = []
+  for (let i = 0; i < data.length; i++) {
+    const diff = data.reduce((acc, item) => {
+      return acc + Math.abs(item - i)
+    }, 0)
+    positions.push(diff)
+  }
+  return Math.min(...positions)
 }
 
 export default part1
