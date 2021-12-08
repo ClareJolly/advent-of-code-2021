@@ -1,5 +1,3 @@
-import { sortArrayOfObjects } from '../../helpers'
-
 const numberConfig = [
   'abcefg',
   'cf',
@@ -14,24 +12,34 @@ const numberConfig = [
 ]
 
 const part1 = (inputData: string[]) => {
-  const data = inputData.map(d => d.split(' | '))
-  console.log('  ~ file: index.ts ~ line 5 ~ part1 ~ data', data)
+  let codes = { 1: 0, 4: 0, 7: 0, 8: 0 }
 
-  const lengthFrequency = numberConfig.reduce((acc, item) => {
-    if (!acc[item.length]) acc[item.length] = 0
-    acc[item.length]++
-    return acc
-  }, {} as { [key: string]: number })
-  console.log('  ~ file: index.ts ~ line 22 ~ lengthFrequency ~ lengthFrequency', lengthFrequency)
+  inputData.forEach(x => {
+    let pattern = x.split(' | ')[1]
 
-  const singleSet = Object.entries(lengthFrequency)
-    .filter(([_, num]) => num === 1)
-    .map(([key]) => key)
-  console.log('  ~ file: index.ts ~ line 28 ~ part1 ~ singleSet', singleSet)
+    pattern.split(' ').forEach(code => {
+      switch (code.length) {
+        case 2:
+          codes[1] = codes[1] + 1
+          break
+        case 3:
+          codes[7] = codes[7] + 1
+          break
+        case 4:
+          codes[4] = codes[4] + 1
+          break
+        case 7:
+          codes[8] = codes[8] + 1
+          break
+        default:
+          break
+      }
+    })
+  })
 
-  // const easyMatches = singleSet.reduce((acc,item)=>{
-  // const match = numberConfig.filter(n=>n.length===)
-  // },{})
+  const result = Object.values(codes).reduce((acc, num) => acc + num)
+
+  return result
 }
 
 export default part1
