@@ -1,12 +1,17 @@
 import { splitStringArrToNumbers } from '../../helpers'
 
+// const adjacentConfig = [
+//   (data: number[][], y: number, x: number) => data[y - 1]?.[x],
+//   (data: number[][], y: number, x: number) => data[y + 1]?.[x],
+//   (data: number[][], y: number, x: number) => data[y][x - 1],
+//   (data: number[][], y: number, x: number) => data[y][x + 1],
+// ]
 const adjacentConfig = [
-  (data: number[][], y: number, x: number) => data[y - 1]?.[x],
-  (data: number[][], y: number, x: number) => data[y + 1]?.[x],
-  (data: number[][], y: number, x: number) => data[y][x - 1],
-  (data: number[][], y: number, x: number) => data[y][x + 1],
+  { y: -1, x: 0 }, // (data: number[][], y: number, x: number) => data[y - 1]?.[x],
+  { y: 1, x: 0 }, //(data: number[][], y: number, x: number) => data[y + 1]?.[x],
+  { y: 0, x: -1 }, //(data: number[][], y: number, x: number) => data[y][x - 1],
+  { y: 0, x: 1 }, //(data: number[][], y: number, x: number) => data[y][x + 1],
 ]
-
 const part1 = (inputData: string[]) => {
   const data = splitStringArrToNumbers(inputData)
 
@@ -15,18 +20,15 @@ const part1 = (inputData: string[]) => {
 
   data.forEach((d, i) => {
     d.forEach((n, ind) => {
-      let isLow = false
-
       const adjacent: number[] = []
 
-      adjacentConfig.forEach(a => {
-        const val = a(data, i, ind)
+      adjacentConfig.forEach(({ y, x }) => {
+        const val = data[y + i]?.[x + ind]
         if (val || val === 0) adjacent.push(val)
       })
 
       const lowest = Math.min(...adjacent)
-      isLow = n < lowest
-      if (isLow) {
+      if (n < lowest) {
         lowCoOrds.push(`${i},${ind}`)
         lowPoints.push(n)
       }
