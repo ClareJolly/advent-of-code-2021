@@ -2,15 +2,15 @@ import { splitStringArrToNumbers } from '../../helpers'
 import { adjacentConfig, getLowestPoints } from '../helpers'
 
 const findBasin = (data: number[][], loopBasin: number[][], basin: string[]) => {
-  loopBasin.forEach(([yy, xx]) => {
-    adjacentConfig.forEach(({ y, x }) => {
-      let val = data[y + yy]?.[x + xx]
+  loopBasin.forEach(([y, x]) => {
+    adjacentConfig.forEach(({ yOffset, xOffset }) => {
+      let val = data[yOffset + y]?.[xOffset + x]
 
-      if (val > data[yy][xx] && val !== 9) {
-        const newCoOrds = [y + yy, x + xx]
+      if (val > data[y][x] && val !== 9) {
+        const newCoOrds = [yOffset + y, xOffset + x]
 
         loopBasin.push(newCoOrds)
-        basin.push(`${y + yy},${x + xx}S`)
+        basin.push(`${yOffset + y},${xOffset + x}S`)
 
         findBasin(data, [newCoOrds], basin)
       }

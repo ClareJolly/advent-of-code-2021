@@ -1,28 +1,31 @@
 export const adjacentConfig = [
-  { y: -1, x: 0 },
-  { y: 1, x: 0 },
-  { y: 0, x: -1 },
-  { y: 0, x: 1 },
+  { yOffset: -1, xOffset: 0 },
+  { yOffset: 1, xOffset: 0 },
+  { yOffset: 0, xOffset: -1 },
+  { yOffset: 0, xOffset: 1 },
 ]
 
-export const getLowestPoints = (
-  data: number[][],
-): { lowCoOrds: number[][]; lowPoints: number[] } => {
+interface LowestPointDetails {
+  lowCoOrds: number[][]
+  lowPoints: number[]
+}
+
+export const getLowestPoints = (data: number[][]): LowestPointDetails => {
   let lowCoOrds: number[][] = []
   let lowPoints: number[] = []
 
-  data.forEach((d, i) => {
-    d.forEach((n, ind) => {
+  data.forEach((row, y) => {
+    row.forEach((cell, x) => {
       const adjacent: number[] = []
 
-      adjacentConfig.forEach(({ y, x }) => {
-        const val = data[y + i]?.[x + ind]
+      adjacentConfig.forEach(({ yOffset, xOffset }) => {
+        const val = data[yOffset + y]?.[xOffset + x]
         if (val || val === 0) adjacent.push(val)
       })
 
-      if (n < Math.min(...adjacent)) {
-        lowCoOrds.push([i, ind])
-        lowPoints.push(n)
+      if (cell < Math.min(...adjacent)) {
+        lowCoOrds.push([y, x])
+        lowPoints.push(cell)
       }
     })
   })
