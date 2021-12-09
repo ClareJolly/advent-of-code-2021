@@ -1,61 +1,40 @@
 import { splitStringArrToNumbers } from '../../helpers'
+import { adjacentConfig, getLowestPoints } from '../helpers'
 
-const adjacentConfig = [
-  { y: -1, x: 0 },
-  { y: 1, x: 0 },
-  { y: 0, x: -1 },
-  { y: 0, x: 1 },
-]
-
-const recur = (data: number[][], loopBasin: number[][], basin: string[]) => {
-  loopBasin.forEach(([a, b]) => {
+const findBasin = (data: number[][], loopBasin: number[][], basin: string[]) => {
+  loopBasin.forEach(([yy, xx]) => {
     adjacentConfig.forEach(({ y, x }) => {
-      let val = data[y + a]?.[x + b]
-      if (val > data[a][b] && val !== 9) {
-        loopBasin.push([y + a, x + b])
-        basin.push(`${y + a},${x + b}S`)
-        recur(data, [[y + a, x + b]], basin)
+      let val = data[y + yy]?.[x + xx]
+
+      if (val > data[yy][xx] && val !== 9) {
+        const newCoOrds = [y + yy, x + xx]
+
+        loopBasin.push(newCoOrds)
+        basin.push(`${y + yy},${x + xx}S`)
+
+        findBasin(data, [newCoOrds], basin)
       }
     })
   })
 }
 
-const processLoop = (data: number[][], a: number, b: number) => {
-  const basin: string[] = [`${a},${b}`]
-  const loopBasin: number[][] = [[a, b]]
-  recur(data, loopBasin, basin)
-  const deduped = [...new Set(basin)]
-  return deduped.length
+const processLowPoint = (data: number[][], y: number, x: number) => {
+  const basin: string[] = [`${y},${x}`]
+  const loopBasin: number[][] = [[y, x]]
+
+  findBasin(data, loopBasin, basin)
+
+  return [...new Set(basin)].length
 }
 
 const part2 = (inputData: string[]) => {
   const data = splitStringArrToNumbers(inputData)
 
-  let lowCoOrds: number[][] = []
-  let lowPoints: number[] = []
+  const { lowCoOrds } = getLowestPoints(data)
 
-  data.forEach((d, i) => {
-    d.forEach((n, ind) => {
-      const adjacent: number[] = []
+  const basinSizes = lowCoOrds.map(([a, b]) => processLowPoint(data, a, b))
 
-      adjacentConfig.forEach(({ y, x }) => {
-        const val = data[y + i]?.[x + ind]
-        if (val || val === 0) adjacent.push(val)
-      })
-
-      const lowest = Math.min(...adjacent)
-      if (n < lowest) {
-        lowCoOrds.push([i, ind])
-        lowPoints.push(n)
-      }
-    })
-  })
-
-  const sizes = lowCoOrds.map(([a, b]) => {
-    return processLoop(data, a, b)
-  })
-
-  const sorted = sizes.sort((a, b) => b - a)
+  const sorted = basinSizes.sort((a, b) => b - a)
 
   return sorted.slice(0, 3).reduce((acc, item) => acc * item, 1)
 }
