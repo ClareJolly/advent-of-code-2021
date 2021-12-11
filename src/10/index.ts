@@ -5,8 +5,8 @@ import part1 from './part1'
 import part2 from './part2'
 
 const run = () => {
-  const inputData = fileToArray(path.join(__dirname, 'data/input.txt'))
-  // const inputData = fileToArray(path.join(__dirname, 'data/testData.txt'))
+  // const inputData = fileToArray(path.join(__dirname, 'data/input.txt'))
+  const inputData = fileToArray(path.join(__dirname, 'data/testData.txt'))
 
   const solution1 = part1(inputData)
   const solution2 = part2(inputData)
