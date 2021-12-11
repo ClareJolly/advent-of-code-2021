@@ -44,6 +44,14 @@ const part1 = (inputData: string[]) => {
         }
       })
     })
+    newData.forEach((row, y) => {
+      row.forEach((cell, x) => {
+        if (cell > 9) {
+          flashes.push(`${y},${x}`)
+          //   data[y][x] = 0
+        }
+      })
+    })
 
     const UniqueFlashes = [...new Set(flashes)]
     console.log('🚀 ~ file: index.ts ~ line 60 ~ part1 ~ flashes', UniqueFlashes)
