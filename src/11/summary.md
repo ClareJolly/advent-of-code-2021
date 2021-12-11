@@ -8,7 +8,7 @@ You enter a large cavern full of rare bioluminescent dumbo octopuses! They seem 
 
 There are 100 octopuses arranged neatly in a 10 by 10 grid. Each octopus slowly gains energy over time and flashes brightly for a moment when its energy is full. Although your lights are off, maybe you could navigate through the cave without disturbing the octopuses if you could predict when the flashes of light will happen.
 
-Each octopus has an energy level - your submarine can remotely measure the energy level of each octopus (your puzzle input). For example:
+Each octopus has an energy level - your submarine can remotely measure the energy level of each octopus ([your puzzle input](data/input.txt)). For example:
 
 ```
 5483143223
