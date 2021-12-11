@@ -34,4 +34,4 @@ Collect stars by solving puzzles. Two puzzles will be made available on each day
 | [Day 8: Seven Segment Search](src/08/summary.md#readme)    |   ⭐   |   🌟   |
 | [Day 9: Smoke Basin](src/09/summary.md#readme)             |   ⭐   |   🌟   |
 | [Day 10: Syntax Scoring](src/10/summary.md#readme)         |   ⭐   |   🌟   |
-| [Day 11: Dumbo Octopus](src/11/summary.md#readme)          |   ⭐   |   🌟   |
+| [Day 11: Dumbo Octopus](src/11/summary.md#readme)          |   ⭐   |        |
