@@ -9,6 +9,18 @@ export const ADJACENT_CONFIG: number[][] = [
   [-1, -1],
 ]
 
+export const checkIsSync = (data: number[][]) => {
+  for (let y = 0; y < data.length; y++) {
+    for (let x = 0; x < data[y].length; x++) {
+      if (data[y][x] !== 0) {
+        return false
+      }
+    }
+  }
+
+  return true
+}
+
 export const reset = (data: number[][]): void => {
   data.forEach((row, y) => {
     row.forEach((_, x) => {
