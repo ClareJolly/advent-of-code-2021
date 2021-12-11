@@ -10,15 +10,18 @@ export const ADJACENT_CONFIG: number[][] = [
 ]
 
 export const checkIsSync = (data: number[][]) => {
-  for (let y = 0; y < data.length; y++) {
-    for (let x = 0; x < data[y].length; x++) {
+  let sync = false
+  // for (let y = 0; y < data.length; y++) {
+  //   for (let x = 0; x < data[y].length; x++) {
+  data.forEach((row, y) => {
+    row.forEach((_, x) => {
       if (data[y][x] !== 0) {
-        return false
+        sync = false
       }
-    }
-  }
+    })
+  })
 
-  return true
+  return sync
 }
 
 export const reset = (data: number[][]): void => {
