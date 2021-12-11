@@ -9,20 +9,69 @@ export const ADJACENT_CONFIG: number[][] = [
   [-1, -1],
 ]
 
-export const incrementAdjacent = (
-  y: number,
-  x: number,
-  flashes: string[],
-  data: number[][],
-): void => {
-  ADJACENT_CONFIG.forEach(([yAdj, xAdj]) => {
-    if (!flashes.includes(`${y + yAdj},${x + xAdj}`)) data[y + yAdj][x + xAdj]++
+export const reset = (data: number[][]): void => {
+  data.forEach((row, y) => {
+    row.forEach((_, x) => {
+      if (data[y][x] > 9) {
+        data[y][x] = 0
+      }
+    })
   })
-  // if (!flashes.includes(`${y + 1},${x}`)) data[y + 1][x]++
-  // if (!flashes.includes(`${y},${x - 1}`)) data[y][x - 1]++
-  // if (!flashes.includes(`${y},${x + 1}`)) data[y][x + 1]++
-  // if (!flashes.includes(`${y + 1},${x + 1}`)) data[y + 1][x + 1]++
-  // if (!flashes.includes(`${y + 1},${x - 1}`)) data[y + 1][x - 1]++
-  // if (!flashes.includes(`${y - 1},${x + 1}`)) data[y - 1][x + 1]++
-  // if (!flashes.includes(`${y - 1},${x - 1}`)) data[y - 1][x - 1]++
+}
+
+export const flash = (flashes: number[][], data: number[][]) => {
+  let flashesCount = 0
+  while (flashes.length > 0) {
+    const [y, x] = flashes.pop()!
+    if (data[y][x] === 10) {
+      //   continue
+
+      flashesCount++
+
+      ADJACENT_CONFIG.forEach(([yAdj, xAdj]) => {
+        //   for (const [yAdj, xAdj] of ADJACENT_CONFIG) {
+        if (
+          //   data[y + yAdj] !== undefined &&
+          data[y + yAdj] &&
+          //   data[y + yAdj][x + xAdj] !== undefined &&
+          data[y + yAdj][x + xAdj] &&
+          data[y + yAdj][x + xAdj] <= 9
+        ) {
+          //   {
+          //     continue
+          //   }
+
+          data[y + yAdj][x + xAdj]++
+
+          if (data[y + yAdj][x + xAdj] === 10) {
+            flashes.push([y + yAdj, x + xAdj])
+          }
+        }
+      })
+    }
+  }
+
+  return flashesCount
+}
+
+export const incrementEnergy = (data: number[][]) => {
+  const flashes: number[][] = []
+  data.forEach((row, y) => {
+    row.forEach((_, x) => {
+      data[y][x]++
+      if (data[y][x] > 9) {
+        flashes.push([y, x])
+      }
+    })
+  })
+
+  return flashes
+}
+
+export const processStep = (data: number[][]) => {
+  const flashes = incrementEnergy(data)
+  const flashesCount = flash(flashes, data)
+  reset(data)
+
+  return flashesCount
 }
