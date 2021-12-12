@@ -6,7 +6,7 @@ With your submarine's subterranean subsystems subsisting suboptimally, the only 
 
 ## Part 1
 
-Fortunately, the sensors are still mostly working, and so you build a rough map of the remaining caves (your puzzle input). For example:
+Fortunately, the sensors are still mostly working, and so you build a rough map of the remaining caves ([your puzzle input](data/input.txt)). For example:
 
 ```
 start-A
