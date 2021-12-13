@@ -5,7 +5,7 @@ const { testData, realData } = getDataForTest(__dirname)
 
 describe('part2', () => {
   it('returns the expected answer with test data', () => {
-    const result = part2(testData)
+    const result = part2(testData[0])
 
     expect(result).toStrictEqual(5)
   })

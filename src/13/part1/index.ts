@@ -1,10 +1,8 @@
 import { batchByBlankLines, create2DArray } from '../../helpers'
+import { parseInput } from '../helpers'
 
 const part1 = (inputData: string[]) => {
-  const [dotsInput, instructionsInput] = batchByBlankLines(inputData)
-
-  const dots = dotsInput.map(d => d.split(',').map(d => Number(d)))
-  // console.log('🚀 ~ file: index.ts ~ line 7 ~ part1 ~ dots', dots)
+  const { dots, instructions } = parseInput(inputData)
 
   const highX = Math.max(...dots.map(([d]) => d))
   const highY = Math.max(...dots.map(([_, d]) => d))
@@ -16,14 +14,14 @@ const part1 = (inputData: string[]) => {
   })
   // console.dir(grid, { depth: null })
 
-  const instructions = instructionsInput.map(i => {
-    const a = i.split(' ')[2]
-    const b = a.split('=')
-    return {
-      axis: b[0],
-      num: Number(b[1]),
-    }
-  })
+  // const instructions = instructionsInput.map(i => {
+  //   const a = i.split(' ')[2]
+  //   const b = a.split('=')
+  //   return {
+  //     axis: b[0],
+  //     num: Number(b[1]),
+  //   }
+  // })
   // console.log('🚀 ~ file: index.ts ~ line 13 ~ part1 ~ instructions', instructions)
   instructions.slice(0, 1).forEach(({ axis, num }) => {
     if (axis === 'y') {
@@ -52,8 +50,6 @@ const part1 = (inputData: string[]) => {
       grid = grid.map(row => row.slice(0, num))
     }
   })
-  // console.dir(grid, { depth: null })
-  // console.log(' grid.length', grid.length)
 
   const totalDots = grid.reduce((acc, row) => {
     const rowTotal = row.filter(r => r === '.').length
