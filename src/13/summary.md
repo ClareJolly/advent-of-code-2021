@@ -136,4 +136,6 @@ What code do you use to activate the infrared thermal imaging camera system?
 
 [Solution Part 2](./part2/index.ts)
 
+![letters](../../docs/day-13-letters.png)
+
 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄
