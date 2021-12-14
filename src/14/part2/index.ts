@@ -1,7 +1,7 @@
-import { getSolutionWithLoops } from '../helpers'
+import { getSolution } from '../helpers'
 
 const part2 = (inputData: string[]) => {
-  return getSolutionWithLoops(inputData, 40)
+  return getSolution(inputData, 40)
 }
 
 export default part2

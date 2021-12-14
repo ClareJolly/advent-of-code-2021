@@ -1,46 +1,71 @@
 import { batchByBlankLines } from '../../helpers'
+import { Frequency, RulesTable } from '../types'
 
-export const getSolutionWithLoops = (inputData: string[], steps: number = 10) => {
-  // const [templateData, rulesData] = batchByBlankLines(inputData)
-
-  const rules = inputData.slice(2).map(a => a.split(' -> '))
-  let template = inputData[0].split('')
-
-  // const templateString = templateData[0]
-  // const template: string[] = templateString.split('')
-  // const rules: string[][] = rulesData.map(r => r.split(' -> '))
-
-  const rulesTable = rules.reduce((acc, [polymer, insert]) => {
+const formatRules = (rules: string[][]) => {
+  return rules.reduce((acc, [polymer, insert]) => {
     acc[polymer] = insert
     return acc
   }, {} as { [key: string]: string })
+}
 
-  let updatedTemplate = [...template]
+const setupInitialCounts = (
+  template: string[],
+  singleElementCounter: Frequency,
+  elementPairCounter: Frequency,
+) => {
+  template.forEach((element, i) => {
+    const singleKey = element
+    const pairKey = template[i - 1] + element
+    singleElementCounter[singleKey] = singleElementCounter[singleKey] + 1 || 1
+    elementPairCounter[pairKey] = elementPairCounter[pairKey] + 1 || 1
+  })
+}
+
+const processStep = (
+  rulesTable: RulesTable,
+  elementPairCounter: Frequency,
+  stepElementPairCounter: Frequency,
+  singleElementCounter: Frequency,
+) => {
+  for (const pair in rulesTable) {
+    if (elementPairCounter[pair]) {
+      const pairCount = elementPairCounter[pair]
+      const insert = rulesTable[pair]
+      const pairA = pair[0] + insert
+      const PairB = insert + pair[1]
+
+      stepElementPairCounter[pairA] = stepElementPairCounter[pairA] + pairCount || pairCount
+      stepElementPairCounter[PairB] = stepElementPairCounter[PairB] + pairCount || pairCount
+      singleElementCounter[insert] = singleElementCounter[insert] + pairCount || pairCount
+    }
+  }
+}
+
+export const getSolution = (inputData: string[], steps: number = 10) => {
+  const [templateData, rulesData] = batchByBlankLines(inputData)
+
+  const template: string[] = templateData[0].split('')
+  const rules: string[][] = rulesData.map(r => r.split(' -> '))
+
+  const rulesTable = formatRules(rules)
+
+  const singleElementCounter: Frequency = {}
+  let elementPairCounter: Frequency = {}
+
+  setupInitialCounts(template, singleElementCounter, elementPairCounter)
 
   for (let step = 0; step < steps; step++) {
-    const newTemplate: string[] = []
-    updatedTemplate.forEach((p, i) => {
-      let currentPair
-      if (i < updatedTemplate.length - 1) currentPair = p + updatedTemplate[i + 1]
-      if (currentPair) {
-        if (i === 0) newTemplate.push(currentPair[0])
-        if (rulesTable[currentPair]) newTemplate.push(rulesTable[currentPair])
+    const stepElementPairCounter: Frequency = {}
 
-        newTemplate.push(currentPair[1])
-      }
-    })
-    updatedTemplate = newTemplate
+    processStep(rulesTable, elementPairCounter, stepElementPairCounter, singleElementCounter)
+
+    elementPairCounter = stepElementPairCounter
   }
 
-  const uniqueElements = [...new Set(updatedTemplate)]
-  // const polymerFrequency: { [key: string]: number } = {}
-  // uniqueElements.forEach(e => (polymerFrequency[e] = updatedTemplate.filter(a => e === a).length))
-  // return Math.max(...Object.values(polymerFrequency)) - Math.min(...Object.values(polymerFrequency))
-  const count = []
-  uniqueElements.forEach(
-    element => (count[element] = updatedTemplate.filter(a => element === a).length),
-  )
-  const occurrences = Object.keys(count).map(key => count[key])
+  const frequencies = []
+  for (const char in singleElementCounter) {
+    frequencies.push(singleElementCounter[char])
+  }
 
-  console.log(Math.max(...occurrences) - Math.min(...occurrences))
+  return Math.max(...frequencies) - Math.min(...frequencies)
 }
