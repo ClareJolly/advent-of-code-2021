@@ -41,3 +41,4 @@ Collect stars by solving puzzles. Two puzzles will be made available on each day
 | [Day 15: Chiton](src/15/summary.md#readme)                  |   ⭐   |   🌟   |
 | [Day 16: Packet Decoder](src/16/summary.md#readme)          |        |
 | [Day 17: Trick Shot](src/17/summary.md#readme)              |        |
+| [Day 18: Snailfish](src/18/summary.md#readme)               |        |
