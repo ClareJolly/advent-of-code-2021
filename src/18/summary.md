@@ -53,7 +53,7 @@ Here is the process of finding the reduced result of [[[[4,3],4],4],[7,[[8,4],9]
 - after explode: [[[[0,7],4],[[7,8],[6,0]]],[8,1]]
   Once no reduce actions apply, the snailfish number that remains is the actual result of the addition operation: [[[[0,7],4],[[7,8],[6,0]]],[8,1]].
 
-The homework assignment involves adding up a list of snailfish numbers (your puzzle input). The snailfish numbers are each listed on a separate line. Add the first snailfish number and the second, then add that result and the third, then add that result and the fourth, and so on until all numbers in the list have been used once.
+The homework assignment involves adding up a list of snailfish numbers ([your puzzle input](data/input.txt)). The snailfish numbers are each listed on a separate line. Add the first snailfish number and the second, then add that result and the third, then add that result and the fourth, and so on until all numbers in the list have been used once.
 
 For example, the final sum of this list is [[[[1,1],[2,2]],[3,3]],[4,4]]:
 
