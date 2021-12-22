@@ -44,5 +44,5 @@ Collect stars by solving puzzles. Two puzzles will be made available on each day
 | [Day 18: Snailfish](src/18/summary.md#readme)               |        |
 | [Day 19: Beacon Scanner](src/19/summary.md#readme)          |        |
 | [Day 20: Trench Map](src/20/summary.md#readme)              |        |
-| [Day 21: Dirac Dice](src/21/summary.md#readme)              |        |
+| [Day 21: Dirac Dice](src/21/summary.md#readme)              |   ⭐   |
 | [Day 22: Reactor Reboot](src/22/summary.md#readme)          |        |
