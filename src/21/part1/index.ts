@@ -23,12 +23,14 @@ const part1 = (inputData: string[]) => {
   while (checkMaxScore(data)) {
     for (let player in data) {
       if (checkMaxScore(data)) {
-        data[player].currentPosition = getNewPosition(data[player].currentPosition, currentDie)
-        currentDie = incrementDie(currentDie)
-        data[player].currentPosition = getNewPosition(data[player].currentPosition, currentDie)
-        currentDie = incrementDie(currentDie)
-        data[player].currentPosition = getNewPosition(data[player].currentPosition, currentDie)
-        currentDie = incrementDie(currentDie)
+        for (let i = 0; i < 3; i++) {
+          data[player].currentPosition = getNewPosition(data[player].currentPosition, currentDie)
+          currentDie = incrementDie(currentDie)
+        }
+        // data[player].currentPosition = getNewPosition(data[player].currentPosition, currentDie)
+        // currentDie = incrementDie(currentDie)
+        // data[player].currentPosition = getNewPosition(data[player].currentPosition, currentDie)
+        // currentDie = incrementDie(currentDie)
         rolls += 3
         data[player].score += data[player].currentPosition % 10 || 10
       }
