@@ -17,7 +17,7 @@ The probe's x,y position starts at 0,0. Then, it will follow some trajectory by 
 - Due to drag, the probe's x velocity changes by 1 toward the value 0; that is, it decreases by 1 if it is greater than 0, increases by 1 if it is less than 0, or does not change if it is already 0.
 - Due to gravity, the probe's y velocity decreases by 1.
 
-For the probe to successfully make it into the trench, the probe must be on some trajectory that causes it to be within a target area after any step. The submarine computer has already calculated this target area (your puzzle input). For example:
+For the probe to successfully make it into the trench, the probe must be on some trajectory that causes it to be within a target area after any step. The submarine computer has already calculated this target area ([your puzzle input](data/input.txt)). For example:
 
 `target area: x=20..30, y=-10..-5`
 
